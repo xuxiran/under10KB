@@ -55,25 +55,6 @@ ps_jpg\Scripts\pyinstaller --onefile --name "ID_Photo_Tool" --windowed process_p
 | 文件格式 | JPEG |
 | 文件大小 | ≤ 10KB |
 
-## 🛠️ 技术栈
-
-- Python 3
-- Pillow（图像处理）
-- PyInstaller（打包为 exe）
-
-## 🚀 GitHub Actions 自动构建
-
-本项目配置了 GitHub Actions 自动构建工作流。当你推送一个以 `v` 开头的标签（如 `v1.0.0`）时，会自动：
-
-1. 在 Windows 环境上构建 exe 文件
-2. 创建 GitHub Release
-3. 将 exe 文件上传到 Release 附件
-
-**手动触发构建：**
-1. 进入 GitHub 仓库的 Actions 页面
-2. 选择 "Build Windows Executable" 工作流
-3. 点击 "Run workflow" 按钮
-
 ## 📄 许可证
 
 MIT License

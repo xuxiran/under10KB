@@ -1,4 +1,4 @@
-# 📸 证件照处理工具
+# 📸 全国资格考试网报平台证件照片审核处理系统---证件照处理工具
 
 将任意照片一键处理为 **25mm × 35mm (295px × 413px)** 的标准证件照规格，输出 JPEG 格式，文件大小控制在 **10KB 以内**。
 <img width="1379" height="942" alt="image" src="https://github.com/user-attachments/assets/13678cc5-39e2-4f9d-ae49-5dd7d944607a" />

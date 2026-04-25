@@ -14,7 +14,7 @@
 
 ### 方式一：直接下载可执行文件（推荐）
 
-从 [Releases](https://github.com/xxr/ps_jpg/releases) 页面下载最新版本的 `证件照处理工具.exe`，双击运行即可。
+从 [Releases](https://github.com/xuxiran/under10KB/releases) 页面下载最新版本的 `证件照处理工具.exe`，双击运行即可。
 
 **使用方法：**
 1. **直接运行**：双击 exe → 弹出文件选择窗口 → 选择照片 → 自动处理

@@ -6,6 +6,9 @@ on:
       - 'v*'  # 当推送 v1.0, v2.0 等标签时触发
   workflow_dispatch:  # 允许手动触发
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: windows-latest
@@ -40,3 +43,4 @@ jobs:
         with:
           files: dist/ID_Photo_Tool.exe
           generate_release_notes: true
+          token: ${{ secrets.GITHUB_TOKEN }}

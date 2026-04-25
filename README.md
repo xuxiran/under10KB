@@ -27,16 +27,21 @@
 如果你有 Python 环境，也可以下载源码自行打包：
 
 ```bash
-# 1. 安装依赖
-pip install Pillow pyinstaller
+# 1. 克隆仓库
+git clone https://github.com/xuxiran/under10KB.git
+cd under10KB
 
-# 2. 打包为 exe
-pyinstaller --onefile --name "ID_Photo_Tool" --windowed process_photo.py
+# 2. 创建虚拟环境（推荐）
+python -m venv ps_jpg
+ps_jpg\Scripts\pip install -r requirements.txt
 
-# 3. 在 dist 目录中找到 exe 文件
+# 3. 打包为 exe
+ps_jpg\Scripts\pyinstaller --onefile --name "ID_Photo_Tool" --windowed process_photo.py
+
+# 4. 在 dist 目录中找到 exe 文件
 ```
 
-或者在 Windows 上直接双击 `build_windows.bat` 自动完成打包。
+或者在 Windows 上直接双击 `build_windows.bat` 自动完成虚拟环境创建和打包。
 
 ## 📋 输出规格
 
@@ -53,6 +58,19 @@ pyinstaller --onefile --name "ID_Photo_Tool" --windowed process_photo.py
 - Python 3
 - Pillow（图像处理）
 - PyInstaller（打包为 exe）
+
+## 🚀 GitHub Actions 自动构建
+
+本项目配置了 GitHub Actions 自动构建工作流。当你推送一个以 `v` 开头的标签（如 `v1.0.0`）时，会自动：
+
+1. 在 Windows 环境上构建 exe 文件
+2. 创建 GitHub Release
+3. 将 exe 文件上传到 Release 附件
+
+**手动触发构建：**
+1. 进入 GitHub 仓库的 Actions 页面
+2. 选择 "Build Windows Executable" 工作流
+3. 点击 "Run workflow" 按钮
 
 ## 📄 许可证
 

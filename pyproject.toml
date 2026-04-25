@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "id-photo-tool"
+version = "1.0.0"
+description = "证件照处理工具 - 将任意照片处理为25mm×35mm标准证件照规格，输出小于10KB"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "xuxiran"}
+]
+requires-python = ">=3.8"
+dependencies = [
+    "Pillow>=10.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/xuxiran/under10KB"
+Repository = "https://github.com/xuxiran/under10KB"

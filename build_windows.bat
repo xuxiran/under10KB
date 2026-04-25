@@ -1,4 +1,5 @@
 @echo off
+chcp 65001 >nul
 title ID Photo Tool - Windows Builder
 
 echo ============================================
@@ -16,13 +17,29 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-echo [1/3] Python detected
+echo [1/4] Python detected
 python --version
 
-:: Install dependencies
+:: Check/Create virtual environment
 echo.
-echo [2/3] Installing dependencies...
-pip install Pillow pyinstaller -q
+echo [2/4] Setting up virtual environment...
+if not exist "ps_jpg\Scripts\python.exe" (
+    echo Creating virtual environment...
+    python -m venv ps_jpg
+    if %errorlevel% neq 0 (
+        echo [ERROR] Failed to create virtual environment
+        pause
+        exit /b 1
+    )
+    echo Virtual environment created
+) else (
+    echo Virtual environment already exists
+)
+
+:: Install dependencies in venv
+echo.
+echo [3/4] Installing dependencies...
+call ps_jpg\Scripts\pip install -r requirements.txt -q
 if %errorlevel% neq 0 (
     echo [ERROR] Dependency installation failed
     pause
@@ -30,16 +47,10 @@ if %errorlevel% neq 0 (
 )
 echo Dependencies installed
 
-:: Add Python Scripts to PATH (fix for "not on PATH" warning)
-for /f "tokens=*" %%i in ('pip show pyinstaller 2^>nul ^| findstr "Location"') do set PYI_DIR=%%i
-set PYI_DIR=%PYI_DIR:Location: =%
-set SCRIPTS_DIR=%PYI_DIR%\..\Scripts
-echo Scripts dir: %SCRIPTS_DIR%
-
-:: Build exe
+:: Build exe using venv's pyinstaller
 echo.
-echo [3/3] Building exe...
-"%SCRIPTS_DIR%\pyinstaller" --onefile --name "ID_Photo_Tool" --windowed process_photo.py
+echo [4/4] Building exe...
+call ps_jpg\Scripts\pyinstaller --onefile --name "ID_Photo_Tool" --windowed process_photo.py
 if %errorlevel% neq 0 (
     echo [ERROR] Build failed
     pause

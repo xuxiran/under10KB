@@ -30,10 +30,16 @@ if %errorlevel% neq 0 (
 )
 echo Dependencies installed
 
+:: Add Python Scripts to PATH (fix for "not on PATH" warning)
+for /f "tokens=*" %%i in ('pip show pyinstaller 2^>nul ^| findstr "Location"') do set PYI_DIR=%%i
+set PYI_DIR=%PYI_DIR:Location: =%
+set SCRIPTS_DIR=%PYI_DIR%\..\Scripts
+echo Scripts dir: %SCRIPTS_DIR%
+
 :: Build exe
 echo.
 echo [3/3] Building exe...
-pyinstaller --onefile --name "ID_Photo_Tool" --windowed process_photo.py
+"%SCRIPTS_DIR%\pyinstaller" --onefile --name "ID_Photo_Tool" --windowed process_photo.py
 if %errorlevel% neq 0 (
     echo [ERROR] Build failed
     pause
@@ -49,6 +55,6 @@ echo Output: dist\ID_Photo_Tool.exe
 echo.
 echo Usage:
 echo   1. Double-click to run, select a photo
-echo   2. Or drag & drop photo onto the exe
+echo   2. Or drag ^& drop photo onto the exe
 echo.
 pause

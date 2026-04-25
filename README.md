@@ -8,19 +8,19 @@
 - ✅ 自动调整图片质量，确保输出文件小于 10KB
 - ✅ 支持拖放图片到程序图标上直接处理
 - ✅ 支持多种输入格式：JPG、JPEG、PNG、BMP、TIFF
-- ✅ 无需安装 Python，下载即用
+- ✅ **无需安装 Python，下载即用**
 
 ## 📥 下载使用
 
 ### 方式一：直接下载可执行文件（推荐）
 
-从 [Releases](https://github.com/xuxiran/under10KB/releases) 页面下载最新版本的 `证件照处理工具.exe`，双击运行即可。
+从 [Releases](https://github.com/xuxiran/under10KB/releases) 页面下载最新版本的 `ID_Photo_Tool.exe`，双击运行即可。
 
 **使用方法：**
 1. **直接运行**：双击 exe → 弹出文件选择窗口 → 选择照片 → 自动处理
 2. **拖放处理**：将照片文件直接拖到 exe 图标上 → 自动处理
 
-处理完成后，会在**原图片所在目录**生成 `output.jpg` 文件。
+处理完成后，会在 **exe 所在目录** 生成 `output.jpg` 文件。
 
 ### 方式二：自行打包
 
@@ -31,7 +31,7 @@
 pip install Pillow pyinstaller
 
 # 2. 打包为 exe
-pyinstaller --onefile --name "证件照处理工具" --windowed process_photo.py
+pyinstaller --onefile --name "ID_Photo_Tool" --windowed process_photo.py
 
 # 3. 在 dist 目录中找到 exe 文件
 ```
